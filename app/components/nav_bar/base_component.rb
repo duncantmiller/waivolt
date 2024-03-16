@@ -20,8 +20,8 @@ module NavBar
       links = []
       links << Link.new(t(".home"), root_path) if helpers.turbo_native_app?
       links << Link.new(t(".developers"), developers_path)
-      links << Link.new("Articles", articles_path)
-      links << Link.new(t(".pricing"), pricing_path)
+      links << Link.new("Articles", "https://waivolt.com/articles")
+      links << Link.new("Practice Exams", "https://waivolt.com")
       links
     end
   end

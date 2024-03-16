@@ -151,6 +151,8 @@ Rails.application.routes.draw do
 
   mount Sidekiq::Web => "/sidekiq"
 
+  # root to: "developers#index"
+
   # authenticate :user, lambda { |user| SidekiqPolicy.new(user).visible? } do
   #   mount Sidekiq::Web => "/sidekiq"
   # end
