@@ -15,19 +15,12 @@ if Rails.configuration.upload_sitemap
 end
 
 SitemapGenerator::Sitemap.create do
-  add root_path, changefreq: "always", priority: 1, lastmod: Developer.visible.maximum(:updated_at)
   add developers_path, changefreq: "always", priority: 1, lastmod: Developer.visible.maximum(:updated_at)
-  add articles_path, changefreq: "always", priority: 1, lastmod: Article.published.maximum(:updated_at)
-  add pricing_path, changefreq: "weekly", priority: 0.9
-  add about_path, changefreq: "monthly", priority: 0.9
 
   Developer.visible.newest_first.find_each do |developer|
     add developer_path(id: developer.hashid), changefreq: "always", priority: 0.8, lastmod: developer.updated_at
   end
 
-  Article.published.sorted.find_each do |article|
-    add article_path(article), changefreq: "weekly", priority: 0.8, lastmod: article.updated_at
-  end
 
   add new_user_session_path, changefreq: "weekly", priority: 0.7
   add new_user_registration_path, changefreq: "weekly", priority: 0.7
