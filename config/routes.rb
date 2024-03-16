@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get "/electricians", to: redirect("professionals")
   get "/electricians/:id", to: redirect("professionals/%{id}")
+  get "/", to: redirect("professionals")
 
   devise_for :users, controllers: {
     registrations: "users"
