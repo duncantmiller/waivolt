@@ -3,7 +3,7 @@ require "aws-sdk-s3"
 SitemapGenerator::Sitemap.default_host = "https://waivolt.com"
 SitemapGenerator::Sitemap.public_path = "tmp"
 SitemapGenerator::Sitemap.sitemaps_host = Rails.configuration.sitemaps_host
-SitemapGenerator::Sitemap.sitemaps_path = "sitemaps/"
+SitemapGenerator::Sitemap.sitemaps_path = "sitemaps/job_board/"
 
 if Rails.configuration.upload_sitemap
   SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
